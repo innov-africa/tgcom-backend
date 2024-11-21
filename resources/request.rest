@@ -1,0 +1,13 @@
+@url = http://localhost:3001/api/v1
+
+# @name createAccount
+POST {{url}}/auth
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "firstname": "test",
+    "lastname": "test",
+    "phone": "0606060606",
+    "role": "accountant"
+}
