@@ -1,5 +1,14 @@
 export default () => ({
   port: parseInt(process.env.PORT, 10) || 3000,
+  resources: {
+     website: process.env.APP_WEBSITE,
+    appname: process.env.APP_NAME,
+    description: process.env.DESCRIPTION,
+    version: process.env.VERSION,
+    logo: process.env.LOGO,
+    primaryColor: process.env.PRIMARY_COLOR,
+    secondaryColor: process.env.SECONDARY_COLOR,
+  },
   mongoDb: {
     host: process.env.MONGO_HOST,
     port: parseInt(process.env.MONGO_PORT, 10) || 5432,
@@ -30,6 +39,24 @@ export default () => ({
     // Collection names
     driverCollection: process.env.FIREBASE_DRIVER_COLLECTION || 'Drivers',
     trackingCollection: process.env.FIREBASE_TRACKING_COLLECTION || 'DriversPositions',
+  },
+ mail: {
+    enabled: !!parseInt(process.env.MAIL_ENABLED),
+    sender: process.env.MAIL_SENDER,
+    transport: {
+      host: process.env.MAIL_HOST,
+      port: parseInt(process.env.MAIL_PORT, 10) || 587,
+      secure: !!parseInt(process.env.MAIL_SECURE),
+    },
+    auth: {
+      user: process.env.MAIL_USERNAME,
+      pass: process.env.MAIL_PASSWORD,
+    },
+    mailgen: {
+      theme: process.env.MAILGEN_THEME,
+      logoHeight: process.env.MAILGEN_LOGO_HEIGHT,
+      logoWidth: process.env.MAILGEN_LOGO_WIDTH,
+    },
   },
   googleMap: {
     key: process.env.GOOGLE_MAP_KEY,
