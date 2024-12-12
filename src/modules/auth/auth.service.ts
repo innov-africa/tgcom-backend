@@ -29,7 +29,8 @@ export class AuthService {
 
   async createAccount(createAccount: CreateAuthDto) {
     try {
-      const password = this.generatePassword(8);
+      // const password = this.generatePassword(8);
+      const password = createAccount.phone;
       Logger.log(password);
       const account = await this.firebaseApp.auth().createUser({
         email: createAccount.email,
