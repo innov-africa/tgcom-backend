@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus, Logger } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
+import { ChangePasswordDto } from './dto/change-password';
 
 @Controller('auth')
 export class AuthController {
@@ -27,4 +28,12 @@ export class AuthController {
     }
   }
 
+  @Post('reset-password')
+  async resetPassword(@Body() changePasswordDto: ChangePasswordDto) {
+    try {
+      return await this.authService.resetPassword(changePasswordDto);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
 }

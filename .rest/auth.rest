@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:3001/api/v1
+
+# @name create_account
+POST {{baseUrl}}/auth/create-account
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "password",
+    "firstname": "John",
+    "lastname": "Doe",
+    "phone": "999999999",
+    "role": "admin"
+}
+###
+
+# @name reset_password
+POST {{baseUrl}}/auth/reset-password
+Content-Type: application/json
+
+{
+    "email": "k0d3.s0n1k@gmail.com"
+}

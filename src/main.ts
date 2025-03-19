@@ -7,6 +7,7 @@ async function bootstrap() {
     origin: [
       'https://caisse-menu-depense.web.app',
       'https://compta-tgcom.web.app',
+      'http://localhost:8100',
     ],
   });
   app.setGlobalPrefix('api/v1');
